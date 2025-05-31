@@ -19,7 +19,7 @@ module "aws_vpc" {
 module "eks" {
   source          = "terraform-aws-modules/eks/aws"
   version         = "~> 20.31"
-  cluster_name    = ver.myfirst_clustername
+  cluster_name    = var.myfirst_clustername
   cluster_version = var.first_clusterversion
 
   vpc_id     = var.my_vpc_id
