@@ -32,17 +32,3 @@ resource "aws_route_table" "public_routetable" {
   }
 }
 
-
-resource "azurerm_resource_group" "example" {
-  name     = var.localNetworkGW
-  location = "West Europe"
-}
-
-resource "azurerm_local_network_gateway" "home" {
-  name                = var.backHome
-  resource_group_name = azurerm_resource_group.example.name
-  location            = azurerm_resource_group.example.location
-  gateway_address     = var.gateway_address
-  address_space       = [var.address_space]
-}
-

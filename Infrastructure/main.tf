@@ -10,18 +10,9 @@ module "aws_vpc" {
   address_space        = var.address_space
   myfirst_clustername  = var.myfirst_clustername
   first_clusterversion = var.first_clusterversion
-
-
-
 }
 
 
-module "eks" {
-  source          = "terraform-aws-modules/eks/aws"
-  version         = "~> 20.31"
-  cluster_name    = var.myfirst_clustername
-  cluster_version = var.first_clusterversion
-
-  vpc_id     = var.my_vpc_id
-  subnet_ids = var.my_subnet_ids
+module "aws_eks_cluster" {
+  source = "../modules/eks"
 }
